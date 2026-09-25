@@ -54,12 +54,18 @@ Failing-before/passing-after cases included:
 - a `0.29` invoice that previously exported as `0.28`;
 - the broken `open`/`paid` filters.
 
-The supplied fixture was checked before and after new imports, including the existing invoice/payment identities and unmatched payment.
 
-Known limit: I did not add automatic rematching of unmatched payments after a future invoice import because the business rules explicitly place that outside scope.
+The supplied fixture was successfully restored with 9 invoices and 5 payments. The existing register was opened in the browser and the restored records were verified.
+
+Manual verification also covered:
+- invoice search using `HARBOR`;
+- `open` and `paid` status filters;
+- mixed CSV import with valid and invalid rows;
+- duplicate re-import handling;
+- payment import and unmatched-payment visibility.
+- Known limit: I did not add automatic rematching of unmatched payments after a future invoice import because the business rules explicitly place that outside scope.
 
 In a real project I would additionally investigate concurrent writers, larger files, malformed CSV quoting/embedded newlines, and a production-grade audit trail.
-
 ## Tools and judgment
 
 I used ChatGPT (GPT-5.6 Luna) to inspect the supplied code, suggest defect hypotheses and regression cases, and review the patch. I did not treat suggestions as proof: I reproduced the seeded behaviours against the original code, then ran the repaired test suite and existing-register/restart checks. A concrete issue caught through verification was amount-based payment matching: a payment for `HARBOR/INV-101` could be attached to another invoice solely because the amounts matched, so the matching rule was changed and tested against the exact customer/invoice identity.
