@@ -1,10 +1,10 @@
 # Handover
 
 - Name: Mutyala Purna Srivalli
-- Email used for this application: [fill in the email used for Mystri]
+- Email used for this application: purnamutyala239@gmail.com
 - Chosen track: Track A — Repair the register
 - Why this track: It matches my software/web development experience and gave me an opportunity to debug an existing application, preserve data, and verify changes rather than rewrite it.
-- Approximate total time, including setup and handover: [fill in actual time; keep within the four-hour assessment limit]
+- Approximate total time, including setup and handover:  Approximately 3 hours
 
 ## Run and verify
 
